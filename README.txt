@@ -73,13 +73,17 @@ III. Module Notes:
             - Code in 5th Commit
             - See ./controllers/shop.js: under getIndex() for '/' route
             and getProducts() for '/products' route
-        
+            - 7th Commit: 
+                +, See ./controllers/admin.js: under getProducts()
+                Retrieving all products for admin products 
+
         c. Retrieving limited Record using where and by ID: 
             - Code in 6th Commit
             - See ./controllers/shop.js: under getProduct()
                 2 approach demonstrated here: 
                 findByPk(): find by ID
                 findAll({where})
+                
 IV. Other Notes: 
     This module contain: 
         

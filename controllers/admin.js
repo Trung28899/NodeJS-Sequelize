@@ -75,14 +75,19 @@ exports.postEditProduct = (req, res, next) => {
   res.redirect("/admin/products");
 };
 
+// Hit Admin Products > '/admin/products'
 exports.getProducts = (req, res, next) => {
-  Product.fetchAll((products) => {
-    res.render("admin/products", {
-      prods: products,
-      pageTitle: "Admin Products",
-      path: "/admin/products",
+  Product.findAll()
+    .then((products) => {
+      res.render("admin/products", {
+        prods: products,
+        pageTitle: "Admin Products",
+        path: "/admin/products",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
-  });
 };
 
 /*Action for deleting product*/

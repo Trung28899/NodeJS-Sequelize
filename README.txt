@@ -69,6 +69,11 @@ III. Module Notes:
             > At this point, only http://localhost:3000/admin/add-product
             works so you can add products to the database
         
+        b. Retrieving all Records: 
+            - Code in 5th Commit
+            - See ./controllers/shop.js: under getIndex() for '/' route
+            and getProducts() for '/products' route
+        
 IV. Other Notes: 
     This module contain: 
         

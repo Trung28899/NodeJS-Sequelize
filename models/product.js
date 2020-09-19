@@ -9,6 +9,8 @@ const sequelize = require("../util/database");
 
 /*
   Defining product model
+  when we import this from other
+  modules, we work with promises automatically
 */
 const Product = sequelize.define("product", {
   id: {

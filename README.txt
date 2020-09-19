@@ -59,6 +59,12 @@ III. Module Notes:
             - Create Tables in Database
             - Make Tables Relations
             - See app.js
+
+    2. Basic Operations: 
+        a. Inserting data (Record) to table: 
+            - Code in 3rd Commit
+            - See ./controllers/admin.js: under postAddProduct()
+            to see how to add a Record
         
 IV. Other Notes: 
     This module contain: 

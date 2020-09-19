@@ -74,6 +74,12 @@ III. Module Notes:
             - See ./controllers/shop.js: under getIndex() for '/' route
             and getProducts() for '/products' route
         
+        c. Retrieving limited Record using where and by ID: 
+            - Code in 6th Commit
+            - See ./controllers/shop.js: under getProduct()
+                2 approach demonstrated here: 
+                findByPk(): find by ID
+                findAll({where})
 IV. Other Notes: 
     This module contain: 
         

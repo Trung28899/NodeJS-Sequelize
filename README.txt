@@ -60,7 +60,7 @@ III. Module Notes:
             - Make Tables Relations
             - See app.js
 
-    2. Basic Operations: 
+    2. Basic Operations (CRUD): 
         a. Inserting data (Record) to table: 
             - Code in 3rd Commit
             - See ./controllers/admin.js: under postAddProduct()
@@ -83,6 +83,14 @@ III. Module Notes:
                 2 approach demonstrated here: 
                 findByPk(): find by ID
                 findAll({where})
+        
+        d. Updating Record: 
+            - Code in 8th Commit
+            - See ./controllers/admin.js: 
+                +, see under getEditProduct()
+                    for how to get edit product
+                +, See under postEditProduct() 
+                    for how to update data 
                 
 IV. Other Notes: 
     This module contain: 

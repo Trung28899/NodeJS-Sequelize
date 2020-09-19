@@ -46,9 +46,19 @@ III. Module Notes:
         - All see 2nd Commit
         Remember to install all the packages listed above
 
-        a. Database Utility Set Up: 
+        a. Database Utility Set Up:
+            - Creating Sequilize Instance
+            - Creating connection pool to MySQL 
+            - See ./util/database.js
+            
         b. Sequelize Model Set Up: 
+            - Defining Model for Data Operations
+            - See ./models/product.js
+        
         c. Sequilize Sync Set Up: 
+            - Create Tables in Database
+            - Make Tables Relations
+            - See app.js
         
 IV. Other Notes: 
     This module contain: 

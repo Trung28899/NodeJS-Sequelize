@@ -65,6 +65,9 @@ III. Module Notes:
             - Code in 3rd Commit
             - See ./controllers/admin.js: under postAddProduct()
             to see how to add a Record
+
+            > At this point, only http://localhost:3000/admin/add-product
+            works so you can add products to the database
         
 IV. Other Notes: 
     This module contain: 

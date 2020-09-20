@@ -25,6 +25,7 @@ exports.postAddProduct = (req, res, next) => {
     .then((result) => {
       console.log("Created Product");
       // console.log(result);
+      res.redirect("/admin/products");
     })
     .catch((err) => {
       console.log(err);
@@ -112,6 +113,17 @@ exports.getProducts = (req, res, next) => {
 /*Action for deleting product*/
 exports.postDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
-  Product.deleteById(prodId);
-  res.redirect("/admin/products");
+  Product.findByPk(prodId)
+    .then((product) => {
+      // This is how we delete product
+      return product.destroy();
+    })
+    .then(() => {
+      console.log("Destroy Product");
+      res.redirect("/admin/products");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  // Product.deleteById(prodId);
 };

@@ -91,6 +91,11 @@ III. Module Notes:
                     for how to get edit product
                 +, See under postEditProduct() 
                     for how to update data 
+        
+        e. Deleting Record: 
+            - Code in 9th Commit
+            - See ./controllers/admin.js. See under 
+                postDeleteProduct() 
                 
 IV. Other Notes: 
     This module contain: 

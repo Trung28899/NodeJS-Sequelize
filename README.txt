@@ -40,6 +40,13 @@ II. Core Concepts:
             - See demonstration image: 
             https://drive.google.com/file/d/1AWcbPDUxF4Q5JpBJ5NWAqUfa7WfSDgQr/view?usp=sharing
 
+    2. Association: 
+        - A connection between 2 table is called an Association
+        - For example: table 'products' and 'users' are connected
+            by 'userId' field
+        - See this image for project association map: 
+        https://drive.google.com/file/d/1xGo3lKXT6vStwn5cAt7XnMtKEfrm72u_/view?usp=sharing
+
 III. Module Notes: 
 
     1. Setting up: 
@@ -96,6 +103,16 @@ III. Module Notes:
             - Code in 9th Commit
             - See ./controllers/admin.js. See under 
                 postDeleteProduct() 
+    
+    3. Table Association Implementation: 
+        - Code in 10th Commit
+        - ./models/users.js: set up model (table) for 
+        users 
+        - app.js: Establising association between
+            users and products table
+        - Association map for this project: 
+            https://drive.google.com/file/d/1xGo3lKXT6vStwn5cAt7XnMtKEfrm72u_/view?usp=sharing
+ 
                 
 IV. Other Notes: 
     This module contain: 

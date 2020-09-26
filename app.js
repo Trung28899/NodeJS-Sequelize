@@ -7,6 +7,8 @@ const errorController = require("./controllers/error");
 const sequelize = require("./util/database");
 const Product = require("./models/product");
 const User = require("./models/user");
+const Cart = require("./models/cart");
+const CartItem = require("./models/cart-item");
 
 const app = express();
 
@@ -34,26 +36,26 @@ app.use(shopRoutes);
 app.use(errorController.get404);
 
 /*
-  An user can offer to sell products 
-  therefore, products belong to users
-
-  2nd argument defines how this Association 
-  (relation) will be managed, this is optional
-
-  onDelete: "CASCADE" means, if a User is 
-  deleted, the Products belong to that User will
-  be deleted also
+  Tables association establishment
 */
-
 Product.belongsTo(User, {
   constraints: true,
   onDelete: "CASCADE",
 });
 // This one is optional
 User.hasMany(Product);
+User.hasOne(Cart);
+// This is optional
+Cart.belongsTo(User);
+Cart.belongsToMany(Product, { through: CartItem });
+Product.belongsToMany(Cart, { through: CartItem });
 
+/*
+  {force: true} only used when we establishing new tables
+  and no record is needed in the database
+*/
 sequelize
-  .sync()
+  .sync({ force: true })
   .then((result) => {
     return User.findByPk(1);
   })

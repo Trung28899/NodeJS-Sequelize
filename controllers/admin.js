@@ -14,14 +14,20 @@ exports.postAddProduct = (req, res, next) => {
   const price = req.body.price;
   const description = req.body.description;
   /*
-    This is how you add a record
+    This is Sequelize associate function
+    This allow us to add record to product 
+    database with correct user (userId)
+
+    req.user is passed in a model in app.js
   */
-  Product.create({
-    title: title,
-    price: price,
-    imageUrl: imageUrl,
-    description: description,
-  })
+  req.user
+    .createProduct({
+      title: title,
+      price: price,
+      imageUrl: imageUrl,
+      description: description,
+      userId: req.user.id,
+    })
     .then((result) => {
       console.log("Created Product");
       // console.log(result);
@@ -41,8 +47,17 @@ exports.getEditProduct = (req, res, next) => {
   }
 
   const prodId = req.params.productId;
-  Product.findByPk(prodId)
-    .then((product) => {
+  /*
+    Getting edit details of all the products of a user
+    (passed in request in app.js)
+    with a corresponding product ID > get a single product
+
+    This use Sequelize Association
+  */
+  req.user
+    .getProducts({ where: { id: prodId } })
+    .then((products) => {
+      const product = products[0];
       if (!product) {
         return res.redirect("/");
       }
@@ -77,13 +92,6 @@ exports.postEditProduct = (req, res, next) => {
       product.imageUrl = updatedImageUrl;
       product.description = updatedDesc;
 
-      /*
-        Take the edited product and update it to the
-        database
-
-        If the product is not existed, it will create a new
-        one, otherwise it update the existed product
-      */
       return product.save();
     })
     .then((result) => {
@@ -97,7 +105,13 @@ exports.postEditProduct = (req, res, next) => {
 
 // Hit Admin Products > '/admin/products'
 exports.getProducts = (req, res, next) => {
-  Product.findAll()
+  /*
+    Getting all the products in products table
+    with corresponding user (using sequelize 
+      association functions)
+  */
+  req.user
+    .getProducts()
     .then((products) => {
       res.render("admin/products", {
         prods: products,

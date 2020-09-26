@@ -105,14 +105,31 @@ III. Module Notes:
                 postDeleteProduct() 
     
     3. Table Association Implementation: 
-        - Code in 11st Commit
-        - ./models/users.js: set up model (table) for 
-        users 
-        - app.js: Establising association between
-            users and products table
-        - Association map for this project: 
-            https://drive.google.com/file/d/1xGo3lKXT6vStwn5cAt7XnMtKEfrm72u_/view?usp=sharing
- 
+        a. Association Implementation: 
+            - Code in 11st Commit
+            - ./models/users.js: set up model (table) for 
+            users 
+            - app.js: Establising association between
+                users and products table
+            - Association map for this project: 
+                https://drive.google.com/file/d/1xGo3lKXT6vStwn5cAt7XnMtKEfrm72u_/view?usp=sharing
+    
+        b. Using association functions: 
+            - Code in 12nd Commit
+            - app.js: Setting the user in req to work with
+            - ./controllers/admin.js: using association methods
+                with req.user
+                Methods used so far: 
+                +, createProduct()
+                +, getProducts()
+        
+        c. One-To-Many & Many-To-Many Relations: 
+            - Code in 12nd Commit
+            - ./models/cart.js && ./models/cart-item.js: 
+                Establising cart and cart-item Tables
+            - app.js: Creating tables, establish one-to-many 
+                & many-to-many Associations
+                
                 
 IV. Other Notes: 
     This module contain: 

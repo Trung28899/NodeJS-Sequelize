@@ -142,6 +142,10 @@ III. Module Notes:
             +, Code in 14th Commit
             +, See in controllers/shop.js, under 
             postCard() to see how to do it
+        - Deleting Item in the cart: 
+            +, Code in 15th Commit
+            +, See in ./controllers/shop.js, under
+            postCartDeleteProduct() for how to do it
                 
                 
 IV. Other Notes: 

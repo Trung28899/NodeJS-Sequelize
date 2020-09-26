@@ -105,7 +105,7 @@ III. Module Notes:
                 postDeleteProduct() 
     
     3. Table Association Implementation: 
-        - Code in 10th Commit
+        - Code in 11st Commit
         - ./models/users.js: set up model (table) for 
         users 
         - app.js: Establising association between

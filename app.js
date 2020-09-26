@@ -16,6 +16,15 @@ app.set("views", "views");
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 
+app.use((req, res, next) => {
+  User.findByPk(1)
+    .then((user) => {
+      req.user = user;
+      next();
+    })
+    .catch((err) => console.log(err));
+});
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -35,6 +44,7 @@ app.use(errorController.get404);
   deleted, the Products belong to that User will
   be deleted also
 */
+
 Product.belongsTo(User, {
   constraints: true,
   onDelete: "CASCADE",
@@ -42,21 +52,23 @@ Product.belongsTo(User, {
 // This one is optional
 User.hasMany(Product);
 
-/*
-  {force: true} will overwrite our table 
-  WE DONT USE THIS IN PRODUCTION
-
-  we use this here because we established new
-  association between 'product' table and the new
-  'user' table. 
-  
-  Therefore we have to force the program
-  to create two new table that are related
-*/
 sequelize
-  .sync({ force: true })
+  .sync()
   .then((result) => {
-    // console.log(result);
+    return User.findByPk(1);
+  })
+  .then((user) => {
+    if (!user) {
+      return User.create({
+        name: "Trung",
+        email: "trung28899@gmail.com",
+      });
+    }
+
+    return user;
+  })
+  .then((user) => {
+    // console.log(user);
     app.listen(3000);
   })
   .catch((err) => {

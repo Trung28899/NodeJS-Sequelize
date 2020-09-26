@@ -153,6 +153,11 @@ III. Module Notes:
             +, Code in 16th Commit
             +, See in ./models/order.js and ./models/order-item.js
             +, See in app.js for association establishment
+        
+        - Storing CartItems as OrderItems: 
+            +, Code in 17th Commit
+            +, See code in ./controllers/shop.js 
+            under postOrder()
                 
                 
 IV. Other Notes: 

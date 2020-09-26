@@ -130,9 +130,11 @@ exports.postCartDeleteProduct = (req, res, next) => {
 };
 
 exports.postOrder = (req, res, next) => {
+  let fetchedCart;
   req.user
     .getCart()
     .then((cart) => {
+      fetchedCart = cart;
       return cart.getProducts();
     })
     .then((products) => {
@@ -149,6 +151,13 @@ exports.postOrder = (req, res, next) => {
         .catch((err) => console.log(err));
     })
     .then((result) => {
+      /*
+        This will clear the cart when the order button
+        is clicked
+      */
+      return fetchedCart.setProducts(null);
+    })
+    .then((result) => {
       res.redirect("/orders");
     })
     .catch((err) => console.log(err));
@@ -156,11 +165,24 @@ exports.postOrder = (req, res, next) => {
 
 // click Orders > "/orders"
 exports.getOrders = (req, res, next) => {
-  // rendering ./views/shop/orders.ejs
-  res.render("shop/orders", {
-    path: "/orders",
-    pageTitle: "Your Orders",
-  });
+  /*
+    include: ['products] allow us to load the 
+    products in the order
+
+    help us to work in orders.ejs by accessing
+    order.products.forEach
+  */
+  req.user
+    .getOrders({ include: ["products"] })
+    .then((orders) => {
+      // rendering ./views/shop/orders.ejs
+      res.render("shop/orders", {
+        path: "/orders",
+        pageTitle: "Your Orders",
+        orders: orders,
+      });
+    })
+    .catch((err) => console.log(err));
 };
 
 // "/checkout"

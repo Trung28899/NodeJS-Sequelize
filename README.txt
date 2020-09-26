@@ -158,8 +158,19 @@ III. Module Notes:
             +, Code in 17th Commit
             +, See code in ./controllers/shop.js 
             under postOrder()
+
+        - Clearing Cart When Order and Displaying Orders
+            +, Code in 18th Commit
+            +, Clearing Cart When Order: ./controllers/shop.js, 
+            search for fetchedCart.setProducts(null)
+            +, Displaying Orders: ./controllers/shop.js, 
+            under getOrders()
                 
                 
 IV. Other Notes: 
-    This module contain: 
+    App now fully functioning, howevers, just using a dummy
+    user for now
+
+    Sequilize Summary: 
+    https://drive.google.com/file/d/1Zmb-Vze3z2ClLyJOJgDMVgXqUxrKZ1JI/view?usp=sharing
         

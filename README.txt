@@ -137,6 +137,11 @@ III. Module Notes:
             user.createCart();
             +, Fetching a cart: ./controllers/shop.js, 
             under getCart()
+        - Adding New Products, Existing Products to cart
+            and Retrieving Cart Item: 
+            +, Code in 14th Commit
+            +, See in controllers/shop.js, under 
+            postCard() to see how to do it
                 
                 
 IV. Other Notes: 

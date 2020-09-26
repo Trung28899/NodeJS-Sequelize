@@ -137,15 +137,22 @@ III. Module Notes:
             user.createCart();
             +, Fetching a cart: ./controllers/shop.js, 
             under getCart()
+
         - Adding New Products, Existing Products to cart
             and Retrieving Cart Item: 
             +, Code in 14th Commit
             +, See in controllers/shop.js, under 
             postCard() to see how to do it
+        
         - Deleting Item in the cart: 
             +, Code in 15th Commit
             +, See in ./controllers/shop.js, under
             postCartDeleteProduct() for how to do it
+        
+        - Adding Order and Order-Item tables: 
+            +, Code in 16th Commit
+            +, See in ./models/order.js and ./models/order-item.js
+            +, See in app.js for association establishment
                 
                 
 IV. Other Notes: 

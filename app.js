@@ -50,10 +50,6 @@ Cart.belongsTo(User);
 Cart.belongsToMany(Product, { through: CartItem });
 Product.belongsToMany(Cart, { through: CartItem });
 
-/*
-  {force: true} only used when we establishing new tables
-  and no record is needed in the database
-*/
 sequelize
   .sync({ force: true })
   .then((result) => {
@@ -70,7 +66,10 @@ sequelize
     return user;
   })
   .then((user) => {
-    // console.log(user);
+    return user.createCart();
+  })
+  .then((cart) => {
+    // cart.getProducts().then((products) => console.log(products));
     app.listen(3000);
   })
   .catch((err) => {

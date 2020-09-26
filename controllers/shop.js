@@ -33,11 +33,6 @@ exports.getProduct = (req, res, next) => {
     })
     .catch((err) => console.log(err));
 
-  /*
-    For Sequelize before v5, should be findById()
-    we can use this to retrieve id too, this is an
-    alternative
-  */
   Product.findByPk(prodID)
     .then((product) => {
       // console.log(product);
@@ -62,29 +57,21 @@ exports.getIndex = (req, res, next) => {
 
 // click Cart > "/cart" => GET
 exports.getCart = (req, res, next) => {
-  // rendering ./views/shop/cart.ejs
-  Cart.getCart((cart) => {
-    Product.fetchAll((products) => {
-      const cartProducts = [];
-      for (product of products) {
-        const cartProductsData = cart.products.find(
-          (prod) => prod.id === product.id
-        );
-        if (cartProductsData) {
-          cartProducts.push({
-            productData: product,
-            qty: cartProductsData.qty,
+  req.user
+    .getCart()
+    .then((cart) => {
+      return cart
+        .getProducts()
+        .then((products) => {
+          res.render("shop/cart", {
+            path: "/cart",
+            pageTitle: "Your Cart",
+            products: products,
           });
-        }
-      }
-
-      res.render("shop/cart", {
-        path: "/cart",
-        pageTitle: "Your Cart",
-        products: cartProducts,
-      });
-    });
-  });
+        })
+        .catch((err) => console.log(err));
+    })
+    .catch((err) => console.log(err));
 };
 
 // click Cart > "/cart" => POST

@@ -129,6 +129,14 @@ III. Module Notes:
                 Establising cart and cart-item Tables
             - app.js: Creating tables, establish one-to-many 
                 & many-to-many Associations
+    
+    4. Other Operations: 
+        - Create and Fetching a cart: 
+            +, Code in 13rd Commit
+            +, Create a cart: app.js, search for
+            user.createCart();
+            +, Fetching a cart: ./controllers/shop.js, 
+            under getCart()
                 
                 
 IV. Other Notes: 

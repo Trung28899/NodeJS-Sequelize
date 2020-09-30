@@ -168,9 +168,12 @@ III. Module Notes:
                 
                 
 IV. Other Notes: 
-    App now fully functioning, howevers, just using a dummy
+    1. App now fully functioning, howevers, just using a dummy
     user for now
 
     Sequilize Summary: 
     https://drive.google.com/file/d/1Zmb-Vze3z2ClLyJOJgDMVgXqUxrKZ1JI/view?usp=sharing
-        
+
+    2. Documentations and Resources: 
+        - Official Sequilize docs: 
+            https://sequelize.org/

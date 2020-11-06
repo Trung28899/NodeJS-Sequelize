@@ -1,6 +1,6 @@
-I. Tools Used: 
+## I. Tools Used:
 
-    - $ npm install 
+    - $ npm install
     - $ npm install --save express
     - $ npm install --save body-parser
     - $ npm install --save ejs pug express-handlebars
@@ -12,168 +12,169 @@ I. Tools Used:
         https://dev.mysql.com/downloads/mysql/
         > download DMG file
 
-        MySQL Workbench: 
+        MySQL Workbench:
         https://dev.mysql.com/downloads/workbench/
-        
+
         Go to /Desktop/Trung/Programs > open workbench
 
         setup video > video 138
 
     - $ npm install --save sequelize
 
+## II. Core Concepts:
 
-II. Core Concepts: 
-
-    1. Introduction to Sequelize: 
+    1. Introduction to Sequelize:
 
         a. What is Sequelize ?
             - 3rd party package
             - It is an Object Relational Mapping library
-                > This means It does all the SQL code behind the 
+                > This means It does all the SQL code behind the
                 scene for us and maps it with Javascript
                 > So we never has to write SQL code on our own
-            - Here is an example picture: 
+            - Here is an example picture:
             https://drive.google.com/file/d/11uznA6zS_L6T9BAMBVq6dTSyKJfkBW8_/view?usp=sharing
 
-        b. What does Sequelize do ? 
+        b. What does Sequelize do ?
             - Model, Instances, Queries, Associations
-            - See demonstration image: 
+            - See demonstration image:
             https://drive.google.com/file/d/1AWcbPDUxF4Q5JpBJ5NWAqUfa7WfSDgQr/view?usp=sharing
 
-    2. Association: 
+    2. Association:
         - A connection between 2 table is called an Association
         - For example: table 'products' and 'users' are connected
             by 'userId' field
-        - See this image for project association map: 
+        - See this image for project association map:
         https://drive.google.com/file/d/1xGo3lKXT6vStwn5cAt7XnMtKEfrm72u_/view?usp=sharing
 
-III. Module Notes: 
+## III. Module Notes:
 
-    1. Setting up: 
+    1. Setting up:
         - All see 2nd Commit
         Remember to install all the packages listed above
 
         a. Database Utility Set Up:
             - Creating Sequilize Instance
-            - Creating connection pool to MySQL 
+            - Creating connection pool to MySQL
             - See ./util/database.js
-            
-        b. Sequelize Model Set Up: 
+
+        b. Sequelize Model Set Up:
             - Defining Model for Data Operations
             - See ./models/product.js
-        
-        c. Sequilize Sync Set Up: 
+
+        c. Sequilize Sync Set Up:
             - Create Tables in Database
             - Make Tables Relations
             - See app.js
 
-    2. Basic Operations (CRUD): 
-        a. Inserting data (Record) to table: 
+    2. Basic Operations (CRUD):
+        a. Inserting data (Record) to table:
             - Code in 3rd Commit
             - See ./controllers/admin.js: under postAddProduct()
             to see how to add a Record
 
             > At this point, only http://localhost:3000/admin/add-product
             works so you can add products to the database
-        
-        b. Retrieving all Records: 
+
+        b. Retrieving all Records:
             - Code in 5th Commit
             - See ./controllers/shop.js: under getIndex() for '/' route
             and getProducts() for '/products' route
-            - 7th Commit: 
+            - 7th Commit:
                 +, See ./controllers/admin.js: under getProducts()
-                Retrieving all products for admin products 
+                Retrieving all products for admin products
 
-        c. Retrieving limited Record using where and by ID: 
+        c. Retrieving limited Record using where and by ID:
             - Code in 6th Commit
             - See ./controllers/shop.js: under getProduct()
-                2 approach demonstrated here: 
+                2 approach demonstrated here:
                 findByPk(): find by ID
                 findAll({where})
-        
-        d. Updating Record: 
+
+        d. Updating Record:
             - Code in 8th Commit
-            - See ./controllers/admin.js: 
+            - See ./controllers/admin.js:
                 +, see under getEditProduct()
                     for how to get edit product
-                +, See under postEditProduct() 
-                    for how to update data 
-        
-        e. Deleting Record: 
+                +, See under postEditProduct()
+                    for how to update data
+
+        e. Deleting Record:
             - Code in 9th Commit
-            - See ./controllers/admin.js. See under 
-                postDeleteProduct() 
-    
-    3. Table Association Implementation: 
-        a. Association Implementation: 
+            - See ./controllers/admin.js. See under
+                postDeleteProduct()
+
+    3. Table Association Implementation:
+        a. Association Implementation:
             - Code in 11st Commit
-            - ./models/users.js: set up model (table) for 
-            users 
+            - ./models/users.js: set up model (table) for
+            users
             - app.js: Establising association between
                 users and products table
-            - Association map for this project: 
+            - Association map for this project:
                 https://drive.google.com/file/d/1xGo3lKXT6vStwn5cAt7XnMtKEfrm72u_/view?usp=sharing
-    
-        b. Using association functions: 
+
+        b. Using association functions:
             - Code in 12nd Commit
             - app.js: Setting the user in req to work with
             - ./controllers/admin.js: using association methods
                 with req.user
-                Methods used so far: 
+                Methods used so far:
                 +, createProduct()
                 +, getProducts()
-        
-        c. One-To-Many & Many-To-Many Relations: 
+
+        c. One-To-Many & Many-To-Many Relations:
             - Code in 12nd Commit
-            - ./models/cart.js && ./models/cart-item.js: 
+            - ./models/cart.js && ./models/cart-item.js:
                 Establising cart and cart-item Tables
-            - app.js: Creating tables, establish one-to-many 
+            - app.js: Creating tables, establish one-to-many
                 & many-to-many Associations
-    
-    4. Other Operations: 
-        - Create and Fetching a cart: 
+
+    4. Other Operations:
+        - Create and Fetching a cart:
             +, Code in 13rd Commit
             +, Create a cart: app.js, search for
             user.createCart();
-            +, Fetching a cart: ./controllers/shop.js, 
+            +, Fetching a cart: ./controllers/shop.js,
             under getCart()
 
         - Adding New Products, Existing Products to cart
-            and Retrieving Cart Item: 
+            and Retrieving Cart Item:
             +, Code in 14th Commit
-            +, See in controllers/shop.js, under 
+            +, See in controllers/shop.js, under
             postCard() to see how to do it
-        
-        - Deleting Item in the cart: 
+
+        - Deleting Item in the cart:
             +, Code in 15th Commit
             +, See in ./controllers/shop.js, under
             postCartDeleteProduct() for how to do it
-        
-        - Adding Order and Order-Item tables: 
+
+        - Adding Order and Order-Item tables:
             +, Code in 16th Commit
             +, See in ./models/order.js and ./models/order-item.js
             +, See in app.js for association establishment
-        
-        - Storing CartItems as OrderItems: 
+
+        - Storing CartItems as OrderItems:
             +, Code in 17th Commit
-            +, See code in ./controllers/shop.js 
+            +, See code in ./controllers/shop.js
             under postOrder()
 
         - Clearing Cart When Order and Displaying Orders
             +, Code in 18th Commit
-            +, Clearing Cart When Order: ./controllers/shop.js, 
+            +, Clearing Cart When Order: ./controllers/shop.js,
             search for fetchedCart.setProducts(null)
-            +, Displaying Orders: ./controllers/shop.js, 
+            +, Displaying Orders: ./controllers/shop.js,
             under getOrders()
-                
-                
-IV. Other Notes: 
+
+
+
+## IV. Other Notes:
+
     1. App now fully functioning, howevers, just using a dummy
     user for now
 
-    Sequilize Summary: 
+    Sequilize Summary:
     https://drive.google.com/file/d/1Zmb-Vze3z2ClLyJOJgDMVgXqUxrKZ1JI/view?usp=sharing
 
-    2. Documentations and Resources: 
-        - Official Sequilize docs: 
+    2. Documentations and Resources:
+        - Official Sequilize docs:
             https://sequelize.org/
